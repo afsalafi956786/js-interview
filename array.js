@@ -245,6 +245,102 @@ console.log(minAndMax(array))
 
 
 
+// find the missing number in array
+
+
+let array = [1, 2, 4, 5, 6] // Missing number is 3
+
+
+function missingNUmber( arr){
+
+    let n= arr.length +1;  //total missing number 1 missing so +1
+   let  totalsum = (n*(n+1)/2);    //Calculate the Expected Sum (totalSum) 
+    let actualsum = arr.reduce((acc,curr)=> acc +curr,0);  //total array sum
+
+    return totalsum - actualsum;
+
+}
+
+console.log(missingNUmber(array))
+
+
+
+
+
+//merge two sorted array
+
+
+function mergeSortedArrays(arr1, arr2) {
+    let mergedArray = [];
+    let i = 0, j = 0;
+
+    // Traverse both arrays
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] < arr2[j]) {
+            mergedArray.push(arr1[i]);
+            i++;
+        } else {
+            mergedArray.push(arr2[j]);
+            j++;
+        }
+    }
+
+    // Add any remaining elements from arr1
+    while (i < arr1.length) {
+        mergedArray.push(arr1[i]);
+        i++;
+    }
+
+    // Add any remaining elements from arr2
+    while (j < arr2.length) {
+        mergedArray.push(arr2[j]);
+        j++;
+    }
+
+    return mergedArray;
+}
+
+// Example usage:
+let array1 = [1, 3, 5, 7];
+let array2 = [2, 4, 6, 8];
+console.log(mergeSortedArrays(array1, array2)); 
+// Output: [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+
+// count paris with given sum
+function countParis(arr,sum){
+
+    let count= 0;
+    for(let i =0;i<arr.length;i++){
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[i] + arr[j] === sum){
+                count ++;
+            }
+        }
+    }
+    return count;
+
+}
+
+let array = [1, 5, 7, -1, 5];
+console.log(countParis(array, 6));
+
+
+
+//move all the negative numbers leftside and +ve right side
+function rearrangeArray (arr){
+
+    let negatives = arr.filter((num)=> num<0);
+    let positves = arr.filter((num)=>num>=0);
+
+    return [...negatives,...positves]
+
+
+
+} 
+let array = [1, -2, 3, -4, -1, 5, -6];
+console.log(rearrangeArray(array)); 
 
 
 

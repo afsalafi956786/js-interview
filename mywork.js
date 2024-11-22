@@ -1,2 +1,1 @@
-// find the missing number in array
-
+//move all the negative numbers leftside and +ve right side
